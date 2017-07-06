@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.harbor.ormlite.clickcounter.ClickConfig;
 import com.harbor.ormlite.hello.HelloAndroid;
+import com.harbor.ormlite.notifyservice.MyActivity;
 import com.harbor.realm.RealmMainActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, RealmMainActivity.class));
             return true;
         }else if(id == R.id.action_settings2){
-            startActivity(new Intent(this, HelloAndroid.class));
+//            startActivity(new Intent(this, HelloAndroid.class));
+//            startActivity(new Intent(this, ClickConfig.class));
+            startActivity(new Intent(this, MyActivity.class));
         }else if(id == R.id.action_settings3){
 
         }

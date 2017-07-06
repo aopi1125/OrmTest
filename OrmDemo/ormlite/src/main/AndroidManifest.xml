@@ -9,9 +9,31 @@
 
         <activity android:name=".hello.HelloAndroid" />
 
-        <activity android:name=".hello_h2.HelloAndroidH2"/>
+        <activity android:name=".hello_h2.HelloAndroidH2" />
 
-        <activity android:name=".nobase.HelloNoBase"/>
+        <activity android:name=".nobase.HelloNoBase" />
+
+        <activity
+            android:name=".clickcounter.ClickConfig"
+            android:label="Create Counter"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".clickcounter.CreateCounter"
+            android:label="Create Counter"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".clickcounter.CounterScreen"
+            android:label="Counter"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".notifyservice.MyActivity" />
+        <activity
+            android:name=".notifyservice.ThingActivity"
+            android:label="Thing" />
+
+        <service android:name=".notifyservice.GetStuffService" />
+        <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+
     </application>
 
 </manifest>

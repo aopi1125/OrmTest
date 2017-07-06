@@ -1,4 +1,4 @@
-package com.harbor.ormlite.hello_h2;
+package com.harbor.ormlite.nohelper;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -6,47 +6,31 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.harbor.ormlite.SimpleData;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
 
 /**
- * Our Android UI activity which displays a text window when it is run.
+ * Sample Android UI activity which displays a text window when it is run.
  * 
  * <p>
- * <b>NOTE:</b> This uses the unsupported JDBC interface and the included version of the H2 database instead of the
- * built in SQLite database. This is only here as a proof of concept.
+ * <b>NOTE:</b> This does <i>not</i> extend the {@link OrmLiteBaseActivity} but instead manages the helper itself
+ * locally using the {@link #databaseHelper} field, the {@link #getHelper()} private method, and the call to
+ * {@link OpenHelperManager#releaseHelper()} inside of the {@link #onDestroy()} method.
  * </p>
  */
-public class HelloAndroidH2 extends Activity {
+public class HelloNoHelper extends Activity {
 
 	private final String LOG_TAG = getClass().getSimpleName();
-	private ConnectionSource connectionSource;
-	private Dao<SimpleData, Integer> simpleDao;
-
-	{
-		if (connectionSource == null) {
-			try {
-				connectionSource =
-						new JdbcConnectionSource(
-								"jdbc:h2:/data/data/com.example.helloandroidh2/databases/helloAndroidH2");
-				simpleDao = DaoManager.createDao(connectionSource, SimpleData.class);
-			} catch (SQLException e) {
-				throw new RuntimeException("Problems initializing database objects", e);
-			}
-			try {
-				TableUtils.createTable(connectionSource, SimpleData.class);
-			} catch (SQLException e) {
-				// ignored
-			}
-		}
-	}
+	/**
+	 * You'll need this in your class to cache the helper in the class.
+	 */
+	private DatabaseHelper databaseHelper = null;
 
 	/**
 	 * Called when the activity is first created.
@@ -54,17 +38,43 @@ public class HelloAndroidH2 extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.i(LOG_TAG, "creating " + getClass());
+		Log.i(LOG_TAG, "creating " + getClass() + " at " + System.currentTimeMillis());
 		TextView tv = new TextView(this);
+		tv.setMovementMethod(new ScrollingMovementMethod());
 		doSampleDatabaseStuff("onCreate", tv);
 		setContentView(tv);
 	}
 
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		/*
+		 * You'll need this in your class to release the helper when done.
+		 */
+		if (databaseHelper != null) {
+			OpenHelperManager.releaseHelper();
+			databaseHelper = null;
+		}
+	}
+
 	/**
-	 * Do our sample database stuff.
+	 * You'll need this in your class to get the helper from the manager once per class.
+	 */
+	private DatabaseHelper getHelper() {
+		if (databaseHelper == null) {
+			databaseHelper = new DatabaseHelper(getApplicationContext());
+		}
+		return databaseHelper;
+	}
+
+	/**
+	 * Do our sample database stuff as an example.
 	 */
 	private void doSampleDatabaseStuff(String action, TextView tv) {
 		try {
+			// get our dao
+			Dao<SimpleData, Integer> simpleDao = getHelper().getSimpleDataDao();
 			// query for all of the data objects in the database
 			List<SimpleData> list = simpleDao.queryForAll();
 			// our string builder for building the content-view
@@ -75,7 +85,7 @@ public class HelloAndroidH2 extends Activity {
 			int simpleC = 0;
 			for (SimpleData simple : list) {
 				sb.append("------------------------------------------\n");
-				sb.append("[" + simpleC + "] = ").append(simple).append('\n');
+				sb.append('[').append(simpleC).append("] = ").append(simple).append('\n');
 				simpleC++;
 			}
 			sb.append("------------------------------------------\n");
@@ -109,9 +119,10 @@ public class HelloAndroidH2 extends Activity {
 			}
 
 			tv.setText(sb.toString());
+			Log.i(LOG_TAG, "Done with page at " + System.currentTimeMillis());
 		} catch (SQLException e) {
 			Log.e(LOG_TAG, "Database exception", e);
-			tv.setText("Database exeption: " + e.getMessage());
+			tv.setText("Database exeption: " + e);
 			return;
 		}
 	}
