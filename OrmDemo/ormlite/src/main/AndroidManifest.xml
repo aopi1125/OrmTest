@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.harbor.ormlite">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity android:name=".hello.HelloAndroid" />
+
+        <activity android:name=".hello_h2.HelloAndroidH2"/>
+
+        <activity android:name=".nobase.HelloNoBase"/>
+    </application>
+
+</manifest>

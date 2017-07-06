@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">OrmDemo</string>
+    <string name="action_realm">realm</string>
+    <string name="action_orm">orm</string>
+    <string name="action_greenDao">greenDao</string>
+</resources>
