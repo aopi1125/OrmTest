@@ -11,5 +11,5 @@ sample of
 ## screenShot 
 <img src="https://github.com/aopi1125/OrmTest/blob/master/image/Screenshot1.png" width="50%" height="50%"> 
 <img src="https://github.com/aopi1125/OrmTest/blob/master/image/Screenshot2.png" width="50%" height="50%">
-<img src="https://github.com/aopi1125/OrmTest/blob/master/image/Screenshot3.png" width="50%" height="50%">
+<img src="https://github.com/aopi1125/OrmTest/blob/master/image/Screenshot3r.png" width="50%" height="50%">
 
