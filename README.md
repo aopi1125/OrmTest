@@ -9,4 +9,4 @@ sample of
 > [realm](https://realm.io/)
 
 ## screenShot 
-![s1](/image/Screenshot1.png =250)
+![s1](./image/Screenshot1.png =250)
