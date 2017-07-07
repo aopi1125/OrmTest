@@ -7,5 +7,28 @@
 - 使用过GreenDao的同学都知道，3.0之前需要通过新建GreenDaoGenerator工程生成Java数据对象（实体）和DAO对象，非常的繁琐而且也加大了使用成本。**GreenDao3.0**最大的变化就是采用注解的方式通过编译方式生成Java数据对象和DAO对象。
 
 ### 不足
-- 学习成本较高。其中使用了一个Java工程根据一些属性和规则去generate一些基础代码，类似于javaBean但会有一些规则，另外还有QueryBuilder、Dao等API，所以首先要明白整个过程，才能方便使用。没有ORMLite那样封装的完整，不过greenDao的官网上也提到了这一点，正是基于generator而不是反射，才使得其效率高的多。
+- 学习成本较高。其中使用了一个Java工程根据一些属性和规则去generate一些基础代码，类似于javaBean但会有一些规则，另外还有QueryBuilder、Dao等API，所以首先要明白整个过程，才能方便使用。没有ORMLite那样封装的完整，不过greenDao的官网上也提到了这一点，正是基于generator而不是反射，才使得其效率高的多。 
+ 
+###使用
+
+    buildscript {
+		repositories {
+        	jcenter()
+    	}
+    	dependencies {
+        	classpath 'com.android.tools.build:gradle:2.3.3'
+        	classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'//for greeDAO
+    	}
+	}
+
+**build.gradle**  
+`apply plugin: 'org.greenrobot.greendao'`  
+
+	dependencies {
+    	compile fileTree(dir: 'libs', include: ['*.jar'])
+    	compile 'org.greenrobot:greendao:3.2.2'
+	}
+
+
+
 

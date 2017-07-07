@@ -1,22 +1,18 @@
-apply plugin: 'com.android.application'
-apply plugin: 'realm-android'//for realm
-
+apply plugin: 'com.android.library'
+apply plugin: 'io.objectbox'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.harbor.db.ormdemo"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-//        externalNativeBuild {
-//            cmake {
-//                cppFlags ""
-//            }
-//        }
+
     }
     buildTypes {
         release {
@@ -24,23 +20,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    externalNativeBuild {
-//        cmake {
-//            path "CMakeLists.txt"
-//        }
-//    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:$rootProject.ext.android.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.ext.android.supportLibraryVersion"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile project(':ormlite')
-    compile project(':realm')
-    compile project(':greendao')
-    compile project(':objectbox')
+
+    compile 'io.objectbox:objectbox-android:0.9.12'
+
+    testCompile 'junit:junit:4.12'
 }

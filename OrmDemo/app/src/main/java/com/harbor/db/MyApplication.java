@@ -15,5 +15,6 @@ public class MyApplication extends App {
         super.onCreate();
         Realm.init(this);
 
+        com.harbor.objectbox.App.onCreate(this);
     }
 }

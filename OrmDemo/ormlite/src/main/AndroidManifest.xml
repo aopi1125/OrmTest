@@ -32,8 +32,8 @@
             android:label="Thing" />
 
         <service android:name=".notifyservice.GetStuffService" />
-        <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
-
     </application>
+
+    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
 
 </manifest>

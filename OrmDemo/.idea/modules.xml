@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/OrmDemo.iml" filepath="$PROJECT_DIR$/OrmDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendao/greendao.iml" filepath="$PROJECT_DIR$/greendao/greendao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/objectbox/objectbox.iml" filepath="$PROJECT_DIR$/objectbox/objectbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/ormlite/ormlite.iml" filepath="$PROJECT_DIR$/ormlite/ormlite.iml" />
       <module fileurl="file://$PROJECT_DIR$/realm/realm.iml" filepath="$PROJECT_DIR$/realm/realm.iml" />
     </modules>

@@ -1,1 +1,1 @@
-include ':app', ':realm', ':ormlite', ':greendao'
+include ':app', ':realm', ':ormlite', ':greendao', ':objectbox'
