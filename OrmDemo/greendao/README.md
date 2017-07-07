@@ -9,7 +9,7 @@
 ### 不足
 - 学习成本较高。其中使用了一个Java工程根据一些属性和规则去generate一些基础代码，类似于javaBean但会有一些规则，另外还有QueryBuilder、Dao等API，所以首先要明白整个过程，才能方便使用。没有ORMLite那样封装的完整，不过greenDao的官网上也提到了这一点，正是基于generator而不是反射，才使得其效率高的多。 
  
-###使用
+### 使用
 
     buildscript {
 		repositories {
