@@ -7,6 +7,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath "io.realm:realm-gradle-plugin:3.4.0"//for realm
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'//for greeDAO
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -24,7 +26,9 @@ ext {
     android = [minSdkVersion    : 14,
                targetSdkVersion : 25,
                compileSdkVersion: 25,
-               buildToolsVersion: '25.0.0']
+               buildToolsVersion: '25.0.0',
+               supportLibraryVersion: '26.+'
+                ]
 }
 
 task clean(type: Delete) {

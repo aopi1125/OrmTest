@@ -19,4 +19,10 @@
         android:orderInCategory="100"
         android:title="@string/action_greenDao"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings4"
+        android:orderInCategory="100"
+        android:title="@string/action_objectbox"
+        app:showAsAction="never" />
 </menu>

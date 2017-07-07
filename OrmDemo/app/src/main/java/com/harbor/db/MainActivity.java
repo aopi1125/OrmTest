@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.harbor.greendao.NoteActivity;
 import com.harbor.ormlite.clickcounter.ClickConfig;
 import com.harbor.ormlite.hello.HelloAndroid;
 import com.harbor.ormlite.notifyservice.MyActivity;
@@ -62,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this, ClickConfig.class));
             startActivity(new Intent(this, MyActivity.class));
         }else if(id == R.id.action_settings3){
-
+            startActivity(new Intent(this, NoteActivity.class));
+        }else if(id == R.id.action_settings4){
+            // TODO: 2017/7/7
         }
 
         return super.onOptionsItemSelected(item);
