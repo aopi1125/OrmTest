@@ -11,7 +11,7 @@ greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能
 ### 不足
 - 有点类似greenDAO的缺点。
 
-###使用
+### 使用
 `data-observers-reactive-extensions`：可以实时监测到数据库的数据变化；  
 
     buildscript {
