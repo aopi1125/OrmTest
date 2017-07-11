@@ -22,6 +22,20 @@ android {
     }
 }
 
+// 数据库的版本及Dao相关设置
+greendao {
+    // 数据库schema版本，也可以理解为数据库版本号
+    schemaVersion 100
+    //  设置DaoMaster 、DaoSession、Dao包名
+    daoPackage  'com.harbor.greendao.dao'
+    //  设置DaoMaster 、DaoSession、Dao目录
+    targetGenDir 'src/main/java'
+    //  设置生成单元测试目录
+//    targetGenDirTest
+    //  设置自动生成单元测试用例
+    generateTests
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

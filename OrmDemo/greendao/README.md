@@ -36,6 +36,8 @@
     	compile 'org.greenrobot:greendao:3.2.2'
 	}
 
+![](img/img2.png)  
+
 #### 升级数据库  
 &emsp;&emsp;默认生成的DaoMaster.OpenHelper在碰到数据库升级的时候会删除旧的表来创建新的表，这样就会导致旧表的数据全部丢失了，所以一定要封装DaoMaster.OpenHelper来实现数据库升级。  
 &emsp;&emsp;示例：  
