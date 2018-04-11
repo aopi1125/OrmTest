@@ -33,9 +33,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     compile "com.android.support:appcompat-v7:$rootProject.ext.android.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.ext.android.supportLibraryVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -43,4 +40,7 @@ dependencies {
     compile project(':realm')
     compile project(':greendao')
     compile project(':objectbox')
+	
+    compile project(':annotation')
+	annotationProcessor project(':annotation_compile')
 }

@@ -4,4 +4,6 @@
     <string name="action_orm">orm</string>
     <string name="action_greenDao">greenDao</string>
     <string name="action_objectbox">ObjectBox</string>
+    <string name="action_MediaPlay">MediaPlay</string>
+
 </resources>

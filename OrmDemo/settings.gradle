@@ -1,1 +1,1 @@
-include ':app', ':realm', ':ormlite', ':greendao', ':objectbox'
+include ':app', ':realm', ':ormlite', ':greendao', ':objectbox', ':annotation', ':annotation_compile'
